@@ -1,0 +1,19 @@
+{
+  "name": "monetary-transactions-manager",
+  "version": "1.0.0",
+  "description": " API to manage users monetary accounts and transactions between them. ",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/APacheco37/monetary-transactions-manager.git"
+  },
+  "author": "APacheco37",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/APacheco37/monetary-transactions-manager/issues"
+  },
+  "homepage": "https://github.com/APacheco37/monetary-transactions-manager#readme"
+}
