@@ -55,6 +55,7 @@ export const transfer = async (
 
     if (originAccount.UserId !== destinationAccount.UserId) {
         amount *= 1.01;
+        amount = parseFloat(amount.toFixed(2));
     }
 
     try {
@@ -70,6 +71,7 @@ export const transfer = async (
     if (originAccount.CurrencyId !== destinationAccount.CurrencyId) {
         try {
             amount =  await FixerService.amountConversion(amount, originAccount.Currency.code, destinationAccount.Currency.code);
+            amount = parseFloat(amount.toFixed(2));
         } catch (error) {
             throw new Error(error);
         }
