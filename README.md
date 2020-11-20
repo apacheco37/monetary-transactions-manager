@@ -21,6 +21,8 @@ API to manage users monetary accounts and transactions between them.
 
 - Split the logic for the `transfer` function in `transaction.service.ts` into the corresponding services.
 
+- Implement User identification and restrict operations over entities to its respective owners
+
 - Add additional interfaces and typings
 
 - Set up CI/CD through GitHub Actions and deployment in AWS
