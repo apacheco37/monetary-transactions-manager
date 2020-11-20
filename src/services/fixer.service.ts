@@ -20,8 +20,8 @@ export const amountConversion = async (amount: number, originCurrency: string, d
         const fixerResponse = await getExchangeRate(originCurrency, destinationCurrency);
         if (fixerResponse.data.success) {
             return amount / 
-                fixerResponse.data.rates['originCurrency'] *
-                fixerResponse.data.rates['destinationCurrency'];
+                fixerResponse.data.rates[`${originCurrency}`] *
+                fixerResponse.data.rates[`${destinationCurrency}`];
         } else {
             throw new Error('Unable to retrieve exchange rate information from Fixer');
         }

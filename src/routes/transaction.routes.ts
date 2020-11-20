@@ -6,8 +6,15 @@ const router = express.Router();
 
 router.get('/transactions', async (req, res) => {
     try {
-        const transactions = await TransactionService.getTransactions();
-        res.status(200).send(transactions);
+        const transactions = await TransactionService.getTransactions(
+            req.query.From as string,
+            req.query.To as string,
+            req.query.SourceAccountID as string
+        );
+        res.status(200).send({
+            count: transactions.length,
+            records: transactions
+        });
     } catch (error) {
         res.status(500).send({
             error: 'There was an error retrieving transactions information.',
@@ -27,7 +34,8 @@ router.post('/transfer', async (req, res) => {
             req.body.amount,
             req.body.description,
             req.body.accountFrom,
-            req.body.accountTo
+            req.body.accountTo,
+            req.body.date
         );
         res.status(201).send({
             message: 'A new transfer has been created successfully.',
@@ -35,7 +43,8 @@ router.post('/transfer', async (req, res) => {
         });
     } catch (error) {
         res.status(500).send({
-            error: 'There was an error creating the transfer.'
+            error: 'There was an error creating the transfer.',
+            message: error
         });
     }
 });
